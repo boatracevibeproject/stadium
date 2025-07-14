@@ -81,7 +81,7 @@ class StadiumCore implements StadiumCoreInterface
         }
 
         $snakeCaseName = $this->convertToSnakeCase($name);
-        $flattenArguments = $this->convertToFlatArray($arguments);
+        $flattenArguments = Arr::flatten($arguments);
         $exactMatchedStadium = Arr::firstWhere($this->stadiums, $snakeCaseName, $flattenArguments[0]);
         if (!is_null($exactMatchedStadium)) {
             return $exactMatchedStadium;
@@ -93,20 +93,6 @@ class StadiumCore implements StadiumCoreInterface
 
         $partialMatchedStadium = reset($partialMatchedStadiums);
         return $partialMatchedStadium === false ? null : $partialMatchedStadium;
-    }
-
-    /**
-     * @param  array  $array
-     * @return array
-     */
-    private function convertToFlatArray(array $array): array
-    {
-        $response = [];
-        array_walk_recursive($array, function ($value) use (&$response) {
-            $response[] = $value;
-        });
-
-        return $response;
     }
 
     /**
