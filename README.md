@@ -1,11 +1,11 @@
 # BVP Stadium
 
-[![Build Status](https://github.com/shimomo/bvp-stadium/workflows/Tests/badge.svg)](https://github.com/shimomo/bvp-stadium/actions?query=workflow%3Atests)
-[![codecov](https://codecov.io/gh/shimomo/bvp-stadium/branch/5.x/graph/badge.svg?token=URL318B6CX)](https://codecov.io/gh/shimomo/bvp-stadium)
-[![PHP Version Require](https://poser.pugx.org/bvp/stadium/require/php)](https://packagist.org/packages/bvp/stadium)
-[![Latest Stable Version](https://poser.pugx.org/bvp/stadium/v/stable)](https://packagist.org/packages/bvp/stadium)
-[![Latest Unstable Version](https://poser.pugx.org/bvp/stadium/v/unstable)](https://packagist.org/packages/bvp/stadium#5.x-dev)
-[![License](https://poser.pugx.org/bvp/stadium/license)](https://packagist.org/packages/bvp/stadium)
+[![tests](https://github.com/shimomo/bvp-stadium/actions/workflows/tests.yml/badge.svg)](https://github.com/shimomo/bvp-stadium/actions/workflows/tests.yml)
+[![codecov](https://codecov.io/gh/shimomo/bvp-stadium/graph/badge.svg?token=URL318B6CX)](https://codecov.io/gh/shimomo/bvp-stadium)
+[![php](https://poser.pugx.org/bvp/stadium/require/php)](https://packagist.org/packages/bvp/stadium)
+[![stable](https://poser.pugx.org/bvp/stadium/v/stable)](https://packagist.org/packages/bvp/stadium)
+[![unstable](https://poser.pugx.org/bvp/stadium/v/unstable)](https://packagist.org/packages/bvp/stadium#5.x-dev)
+[![license](https://poser.pugx.org/bvp/stadium/license)](https://packagist.org/packages/bvp/stadium)
 
 The BVP Stadium package provides structured data about all Japanese boatrace stadiums, including their names in various scripts (Kanji, Hiragana, Katakana, English), url information, and identifier numbers.
 
