@@ -1,7 +1,7 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
     "name": "bvp/stadium",
-    "description": "The BVP Stadium package for Boatrace.",
+    "description": "The BVP Stadium for Boatrace.",
     "keywords": [
         "boatrace",
         "library",
