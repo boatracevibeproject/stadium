@@ -7,7 +7,7 @@
 [![unstable](https://poser.pugx.org/bvp/stadium/v/unstable)](https://packagist.org/packages/bvp/stadium#5.x-dev)
 [![license](https://poser.pugx.org/bvp/stadium/license)](https://packagist.org/packages/bvp/stadium)
 
-The BVP Stadium package provides structured data about all Japanese boatrace stadiums, including their names in various scripts (Kanji, Hiragana, Katakana, English), url information, and identifier numbers.
+The BVP Stadium provides structured data about all Japanese boatrace stadiums, including their names in various scripts (Kanji, Hiragana, Katakana, English), url information, and identifier numbers.
 
 ## Installation
 ```bash
@@ -81,4 +81,4 @@ $stadium = Stadium::byUrl('suminoe');
 ```
 
 ## License
-The BVP Stadium package is open source software licensed under the [MIT license](LICENSE).
+The BVP Stadium is open source software licensed under the [MIT license](LICENSE).
