@@ -87,9 +87,13 @@ class StadiumCore implements StadiumCoreInterface
             return $exactMatchedStadium;
         }
 
-        $partialMatchedStadiums = array_filter($this->stadiums, function ($stadium, $key) use ($snakeCaseName, $flattenArguments) {
-            return str_contains((string) $stadium[$snakeCaseName], (string) $flattenArguments[0]);
-        }, ARRAY_FILTER_USE_BOTH);
+        $partialMatchedStadiums = array_filter(
+            $this->stadiums,
+            function ($stadium, $key) use ($snakeCaseName, $flattenArguments) {
+                return str_contains((string) $stadium[$snakeCaseName], (string) $flattenArguments[0]);
+            },
+            ARRAY_FILTER_USE_BOTH
+        );
 
         $partialMatchedStadium = reset($partialMatchedStadiums);
         return $partialMatchedStadium === false ? null : $partialMatchedStadium;

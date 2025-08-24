@@ -18,7 +18,10 @@ class Stadium implements StadiumInterface
      * @param  \BVP\Stadium\StadiumCoreInterface  $stadium
      * @return void
      */
-    public function __construct(private readonly StadiumCoreInterface $stadium) {}
+    public function __construct(private readonly StadiumCoreInterface $stadium)
+    {
+        //
+    }
 
     /**
      * @param  string  $name
