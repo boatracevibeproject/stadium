@@ -7,7 +7,7 @@ namespace BVP\Stadium;
 /**
  * @author shimomo
  */
-class Stadium implements StadiumInterface
+final class Stadium implements StadiumInterface
 {
     /**
      * @var \BVP\Stadium\StadiumInterface|null
@@ -24,22 +24,24 @@ class Stadium implements StadiumInterface
     }
 
     /**
-     * @param  string  $name
-     * @param  array   $arguments
-     * @return array|null
+     * @param  non-empty-string   $name
+     * @param  array<int, mixed>  $arguments
+     * @return array<non-empty-string, non-empty-string|int<1, 24>>|null
      */
     public function __call(string $name, array $arguments): ?array
     {
+        /** @var array<non-empty-string, non-empty-string|int<1, 24>>|null */
         return $this->stadium->$name(...$arguments);
     }
 
     /**
-     * @param  string  $name
-     * @param  array   $arguments
-     * @return array|null
+     * @param  non-empty-string   $name
+     * @param  array<int, mixed>  $arguments
+     * @return array<non-empty-string, non-empty-string|int<1, 24>>|null|null
      */
     public static function __callStatic(string $name, array $arguments): ?array
     {
+        /** @var array<non-empty-string, non-empty-string|int<1, 24>>|null */
         return self::getInstance()->$name(...$arguments);
     }
 
@@ -47,6 +49,7 @@ class Stadium implements StadiumInterface
      * @param  \BVP\Stadium\StadiumCoreInterface|null  $stadiumCore
      * @return \BVP\Stadium\StadiumInterface
      */
+    #[\Override]
     public static function getInstance(?StadiumCoreInterface $stadiumCore = null): StadiumInterface
     {
         return self::$instance ??= new self($stadiumCore ?? new StadiumCore());
@@ -56,6 +59,7 @@ class Stadium implements StadiumInterface
      * @param  \BVP\Stadium\StadiumCoreInterface|null  $stadiumCore
      * @return \BVP\Stadium\StadiumInterface
      */
+    #[\Override]
     public static function createInstance(?StadiumCoreInterface $stadiumCore = null): StadiumInterface
     {
         return self::$instance = new self($stadiumCore ?? new StadiumCore());
@@ -64,6 +68,7 @@ class Stadium implements StadiumInterface
     /**
      * @return void
      */
+    #[\Override]
     public static function resetInstance(): void
     {
         self::$instance = null;

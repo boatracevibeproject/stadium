@@ -9,15 +9,15 @@ use Shimomo\Helper\Arr;
 /**
  * @author shimomo
  */
-class StadiumCore implements StadiumCoreInterface
+final class StadiumCore implements StadiumCoreInterface
 {
     /**
-     * @var array
+     * @var array<int, array<non-empty-string, non-empty-string|int<1, 24>>>
      */
     private array $stadiums;
 
     /**
-     * @var array
+     * @var array<non-empty-string, non-empty-string>
      */
     private array $resolveMethodMap = [
         '/^by(.+)$/u' => 'by',
@@ -32,9 +32,9 @@ class StadiumCore implements StadiumCoreInterface
     }
 
     /**
-     * @param  string  $name
-     * @param  array   $arguments
-     * @return array|null
+     * @param  non-empty-string   $name
+     * @param  array<int, mixed>  $arguments
+     * @return array<non-empty-string, non-empty-string|int<1, 24>>|null
      */
     public function __call(string $name, array $arguments): ?array
     {
@@ -42,9 +42,9 @@ class StadiumCore implements StadiumCoreInterface
     }
 
     /**
-     * @param  string  $name
-     * @param  array   $arguments
-     * @return array|null
+     * @param  non-empty-string   $name
+     * @param  array<int, mixed>  $arguments
+     * @return array<non-empty-string, non-empty-string|int<1, 24>>|null
      *
      * @throws \BadMethodCallException
      */
@@ -53,6 +53,7 @@ class StadiumCore implements StadiumCoreInterface
         foreach ($this->resolveMethodMap as $pattern => $method) {
             if (preg_match($pattern, $name, $matches)) {
                 if (is_callable([$this, $method])) {
+                    /** @var array<non-empty-string, non-empty-string|int<1, 24>>|null */
                     return $this->$method($matches[1], $arguments);
                 }
             }
@@ -64,9 +65,9 @@ class StadiumCore implements StadiumCoreInterface
     }
 
     /**
-     * @param  string  $name
-     * @param  array   $arguments
-     * @return array|null
+     * @param  non-empty-string   $name
+     * @param  array<int, mixed>  $arguments
+     * @return array<non-empty-string, non-empty-string|int<1, 24>>|null
      *
      * @throws \InvalidArgumentException
      */
@@ -82,17 +83,27 @@ class StadiumCore implements StadiumCoreInterface
 
         $snakeCaseName = $this->convertToSnakeCase($name);
         $flattenArguments = Arr::flatten($arguments);
+        if (!is_string($flattenArguments[0]) && !is_int($flattenArguments[0])) {
+            throw new \InvalidArgumentException(
+                __METHOD__ . "() - Argument passed to function " . self::class .
+                "::by{$name}() must be of type string or int, " . gettype($flattenArguments[0]) . " given."
+            );
+        }
+
         $exactMatchedStadium = Arr::firstWhere($this->stadiums, $snakeCaseName, $flattenArguments[0]);
         if (!is_null($exactMatchedStadium)) {
+            /** @var array<non-empty-string, non-empty-string|int<1, 24>>|null */
             return $exactMatchedStadium;
         }
 
         $partialMatchedStadiums = array_filter(
             $this->stadiums,
-            function ($stadium, $key) use ($snakeCaseName, $flattenArguments) {
-                return str_contains((string) $stadium[$snakeCaseName], (string) $flattenArguments[0]);
-            },
-            ARRAY_FILTER_USE_BOTH
+            function (array $stadium) use ($snakeCaseName, $flattenArguments) {
+                return $snakeCaseName !== '' && str_contains(
+                    (string) $stadium[$snakeCaseName],
+                    (string) $flattenArguments[0]
+                );
+            }
         );
 
         $partialMatchedStadium = reset($partialMatchedStadiums);
@@ -100,11 +111,11 @@ class StadiumCore implements StadiumCoreInterface
     }
 
     /**
-     * @param  string  $value
+     * @param  non-empty-string  $value
      * @return string
      */
     private function convertToSnakeCase(string $value): string
     {
-        return ltrim(strtolower(preg_replace('/[A-Z]/', '_$0', $value)), '_');
+        return ltrim(strtolower(preg_replace('/[A-Z]/', '_$0', $value) ?? ''), '_');
     }
 }
