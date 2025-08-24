@@ -31,7 +31,7 @@ final class StadiumCoreTest extends TestCase
      * @param  array  $expected
      * @return void
      */
-    #[DataProviderExternal(StadiumCoreDataProvider::class, 'byNumberProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'byNumberProvider')]
     public function testByNumber(array $arguments, array $expected): void
     {
         $this->assertSame($expected, $this->stadium->byNumber(...$arguments));
@@ -42,7 +42,7 @@ final class StadiumCoreTest extends TestCase
      * @param  array  $expected
      * @return void
      */
-    #[DataProviderExternal(StadiumCoreDataProvider::class, 'byNameProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'byNameProvider')]
     public function testByName(array $arguments, array $expected): void
     {
         $this->assertSame($expected, $this->stadium->byName(...$arguments));
@@ -53,7 +53,7 @@ final class StadiumCoreTest extends TestCase
      * @param  array  $expected
      * @return void
      */
-    #[DataProviderExternal(StadiumCoreDataProvider::class, 'byShortNameProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'byShortNameProvider')]
     public function testByShortName(array $arguments, array $expected): void
     {
         $this->assertSame($expected, $this->stadium->byShortName(...$arguments));
@@ -64,7 +64,7 @@ final class StadiumCoreTest extends TestCase
      * @param  array  $expected
      * @return void
      */
-    #[DataProviderExternal(StadiumCoreDataProvider::class, 'byHiraganaNameProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'byHiraganaNameProvider')]
     public function testByHiraganaName(array $arguments, array $expected): void
     {
         $this->assertSame($expected, $this->stadium->byHiraganaName(...$arguments));
@@ -75,7 +75,7 @@ final class StadiumCoreTest extends TestCase
      * @param  array  $expected
      * @return void
      */
-    #[DataProviderExternal(StadiumCoreDataProvider::class, 'byKatakanaNameProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'byKatakanaNameProvider')]
     public function testByKatakanaName(array $arguments, array $expected): void
     {
         $this->assertSame($expected, $this->stadium->byKatakanaName(...$arguments));
@@ -86,7 +86,7 @@ final class StadiumCoreTest extends TestCase
      * @param  array  $expected
      * @return void
      */
-    #[DataProviderExternal(StadiumCoreDataProvider::class, 'byEnglishNameProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'byEnglishNameProvider')]
     public function testByEnglishName(array $arguments, array $expected): void
     {
         $this->assertSame($expected, $this->stadium->byEnglishName(...$arguments));
@@ -97,7 +97,7 @@ final class StadiumCoreTest extends TestCase
      * @param  array  $expected
      * @return void
      */
-    #[DataProviderExternal(StadiumCoreDataProvider::class, 'byUrlProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'byUrlProvider')]
     public function testByUrl(array $arguments, array $expected): void
     {
         $this->assertSame($expected, $this->stadium->byUrl(...$arguments));
