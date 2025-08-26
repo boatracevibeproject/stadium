@@ -170,8 +170,6 @@ Array
 
 </details>
 
-</details>
-
 ### Stadium::byEnglishName()
 ```php
 $stadium = Stadium::byEnglishName('suminoe');
