@@ -19,6 +19,17 @@ final class StadiumTest extends TestCase
      * @param  array  $expected
      * @return void
      */
+    #[DataProviderExternal(StadiumDataProvider::class, 'allProvider')]
+    public function testAll(array $arguments, array $expected): void
+    {
+        $this->assertSame($expected, Stadium::all(...$arguments));
+    }
+
+    /**
+     * @param  array  $arguments
+     * @param  array  $expected
+     * @return void
+     */
     #[DataProviderExternal(StadiumDataProvider::class, 'byNumberProvider')]
     public function testByNumber(array $arguments, array $expected): void
     {

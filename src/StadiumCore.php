@@ -20,6 +20,7 @@ final class StadiumCore implements StadiumCoreInterface
      * @var array<non-empty-string, non-empty-string>
      */
     private array $resolveMethodMap = [
+        '/^(all)$/u' => 'all',
         '/^by(.+)$/u' => 'by',
     ];
 
@@ -62,6 +63,25 @@ final class StadiumCore implements StadiumCoreInterface
         throw new \BadMethodCallException(
             __METHOD__ . "() - Call to undefined method '" . self::class . "::{$name}()'."
         );
+    }
+
+    /**
+     * @param  non-empty-string   $name
+     * @param  array<int, mixed>  $arguments
+     * @return array<int, array<non-empty-string, non-empty-string|int<1, 24>>>
+     *
+     * @throws \InvalidArgumentException
+     */
+    private function all(string $name, array $arguments): array
+    {
+        if (($countArguments = count($arguments)) !== 0) {
+            throw new \InvalidArgumentException(
+                __METHOD__ . "() - Too many arguments to function " . self::class . "::{$name}(), " .
+                "{$countArguments} passed and exactly 1 expected."
+            );
+        }
+
+        return $this->stadiums;
     }
 
     /**
