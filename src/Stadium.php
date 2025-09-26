@@ -10,12 +10,17 @@ namespace BVP\Stadium;
 final class Stadium implements StadiumInterface
 {
     /**
+     * @psalm-var \BVP\Stadium\StadiumInterface|null
+     *
      * @var \BVP\Stadium\StadiumInterface|null
      */
     private static ?StadiumInterface $instance;
 
     /**
-     * @param  \BVP\Stadium\StadiumCoreInterface  $stadium
+     * @psalm-param \BVP\Stadium\StadiumCoreInterface $stadium
+     * @psalm-return void
+     *
+     * @param \BVP\Stadium\StadiumCoreInterface $stadium
      * @return void
      */
     public function __construct(private readonly StadiumCoreInterface $stadium)
@@ -24,29 +29,108 @@ final class Stadium implements StadiumInterface
     }
 
     /**
-     * @param  non-empty-string   $name
-     * @param  array<int, mixed>  $arguments
-     * @return array<non-empty-string, non-empty-string|int<1, 24>>|null
+     * @psalm-param non-empty-string $name
+     * @psalm-param array<int, mixed> $arguments
+     * @psalm-return array<int, array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * }>|array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * }|null
+     *
+     * @param string $name
+     * @param array $arguments
+     * @return array|null
      */
     public function __call(string $name, array $arguments): ?array
     {
-        /** @var array<non-empty-string, non-empty-string|int<1, 24>>|null */
+        /**
+         * @psalm-var array<int, array{
+         *     number: int<1, 24>,
+         *     name: non-empty-string,
+         *     short_name: non-empty-string,
+         *     hiragana_name: non-empty-string,
+         *     katakana_name: non-empty-string,
+         *     english_name: non-empty-string,
+         *     url: non-empty-string
+         * }>|array{
+         *     number: int<1, 24>,
+         *     name: non-empty-string,
+         *     short_name: non-empty-string,
+         *     hiragana_name: non-empty-string,
+         *     katakana_name: non-empty-string,
+         *     english_name: non-empty-string,
+         *     url: non-empty-string
+         * }|null
+         */
         return $this->stadium->$name(...$arguments);
     }
 
     /**
-     * @param  non-empty-string   $name
-     * @param  array<int, mixed>  $arguments
-     * @return array<non-empty-string, non-empty-string|int<1, 24>>|null|null
+     * @psalm-param non-empty-string $name
+     * @psalm-param array<int, mixed> $arguments
+     * @psalm-return array<int, array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * }>|array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * }|null
+     *
+     * @param string $name
+     * @param array $arguments
+     * @return array|null
      */
     public static function __callStatic(string $name, array $arguments): ?array
     {
-        /** @var array<non-empty-string, non-empty-string|int<1, 24>>|null */
+        /**
+         * @psalm-var array<int, array{
+         *     number: int<1, 24>,
+         *     name: non-empty-string,
+         *     short_name: non-empty-string,
+         *     hiragana_name: non-empty-string,
+         *     katakana_name: non-empty-string,
+         *     english_name: non-empty-string,
+         *     url: non-empty-string
+         * }>|array{
+         *     number: int<1, 24>,
+         *     name: non-empty-string,
+         *     short_name: non-empty-string,
+         *     hiragana_name: non-empty-string,
+         *     katakana_name: non-empty-string,
+         *     english_name: non-empty-string,
+         *     url: non-empty-string
+         * }|null
+         */
         return self::getInstance()->$name(...$arguments);
     }
 
     /**
-     * @param  \BVP\Stadium\StadiumCoreInterface|null  $stadiumCore
+     * @psalm-param \BVP\Stadium\StadiumCoreInterface|null $stadiumCore
+     * @psalm-return \BVP\Stadium\StadiumInterface
+     *
+     * @param \BVP\Stadium\StadiumCoreInterface|null $stadiumCore
      * @return \BVP\Stadium\StadiumInterface
      */
     #[\Override]
@@ -56,7 +140,10 @@ final class Stadium implements StadiumInterface
     }
 
     /**
-     * @param  \BVP\Stadium\StadiumCoreInterface|null  $stadiumCore
+     * @psalm-param \BVP\Stadium\StadiumCoreInterface|null $stadiumCore
+     * @psalm-return \BVP\Stadium\StadiumInterface
+     *
+     * @param \BVP\Stadium\StadiumCoreInterface|null $stadiumCore
      * @return \BVP\Stadium\StadiumInterface
      */
     #[\Override]
@@ -66,6 +153,8 @@ final class Stadium implements StadiumInterface
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     #[\Override]

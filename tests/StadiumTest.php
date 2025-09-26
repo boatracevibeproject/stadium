@@ -15,8 +15,20 @@ use PHPUnit\Framework\TestCase;
 final class StadiumTest extends TestCase
 {
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @psalm-param array<empty, empty> $arguments
+     * @psalm-param array<int, array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * }> $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(StadiumDataProvider::class, 'allProvider')]
@@ -26,8 +38,20 @@ final class StadiumTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @psalm-param array<int, int<1, 24>>|array<int, array<int, int<1, 24>>> $arguments
+     * @psalm-param array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * } $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(StadiumDataProvider::class, 'byNumberProvider')]
@@ -37,8 +61,20 @@ final class StadiumTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
+     * @psalm-param array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * } $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(StadiumDataProvider::class, 'byNameProvider')]
@@ -48,8 +84,20 @@ final class StadiumTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
+     * @psalm-param array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * } $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(StadiumDataProvider::class, 'byShortNameProvider')]
@@ -59,8 +107,20 @@ final class StadiumTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
+     * @psalm-param array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * } $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(StadiumDataProvider::class, 'byHiraganaNameProvider')]
@@ -70,8 +130,20 @@ final class StadiumTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
+     * @psalm-param array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * } $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(StadiumDataProvider::class, 'byKatakanaNameProvider')]
@@ -81,8 +153,20 @@ final class StadiumTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
+     * @psalm-param array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * } $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(StadiumDataProvider::class, 'byEnglishNameProvider')]
@@ -92,8 +176,20 @@ final class StadiumTest extends TestCase
     }
 
     /**
-     * @param  array  $arguments
-     * @param  array  $expected
+     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
+     * @psalm-param array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * } $expected
+     * @psalm-return void
+     *
+     * @param array $arguments
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(StadiumDataProvider::class, 'byUrlProvider')]
@@ -103,6 +199,8 @@ final class StadiumTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testThrowsExceptionWhenMethodDoesNotExist(): void
@@ -117,6 +215,8 @@ final class StadiumTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testThrowsExceptionWhenArgumentsAreTooFew(): void
@@ -132,6 +232,8 @@ final class StadiumTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testThrowsExceptionWhenArgumentsAreTooMany(): void
@@ -147,6 +249,8 @@ final class StadiumTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testGetInstance(): void
@@ -156,6 +260,8 @@ final class StadiumTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testCreateInstance(): void
@@ -165,6 +271,8 @@ final class StadiumTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testResetInstance(): void

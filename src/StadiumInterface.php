@@ -10,18 +10,26 @@ namespace BVP\Stadium;
 interface StadiumInterface
 {
     /**
-     * @param  \BVP\Stadium\StadiumCoreInterface|null  $stadiumCore
+     * @psalm-param \BVP\Stadium\StadiumCoreInterface|null $stadiumCore
+     * @psalm-return \BVP\Stadium\StadiumInterface
+     *
+     * @param \BVP\Stadium\StadiumCoreInterface|null $stadiumCore
      * @return \BVP\Stadium\StadiumInterface
      */
     public static function getInstance(?StadiumCoreInterface $stadiumCore = null): StadiumInterface;
 
     /**
-     * @param  \BVP\Stadium\StadiumCoreInterface|null  $stadiumCore
+     * @psalm-param \BVP\Stadium\StadiumCoreInterface|null $stadiumCore
+     * @psalm-return \BVP\Stadium\StadiumInterface
+     *
+     * @param \BVP\Stadium\StadiumCoreInterface|null $stadiumCore
      * @return \BVP\Stadium\StadiumInterface
      */
     public static function createInstance(?StadiumCoreInterface $stadiumCore = null): StadiumInterface;
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public static function resetInstance(): void;

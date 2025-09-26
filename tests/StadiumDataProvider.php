@@ -10,6 +10,19 @@ namespace BVP\Stadium\Tests;
 final class StadiumDataProvider
 {
     /**
+     * @psalm-return array<int, array{
+     *     arguments: array<empty, empty>,
+     *     expected: array<int, array{
+     *         number: int<1, 24>,
+     *         name: non-empty-string,
+     *         short_name: non-empty-string,
+     *         hiragana_name: non-empty-string,
+     *         katakana_name: non-empty-string,
+     *         english_name: non-empty-string,
+     *         url: non-empty-string
+     *     }>
+     * }>
+     *
      * @return array
      */
     public static function allProvider(): array
@@ -240,6 +253,19 @@ final class StadiumDataProvider
     }
 
     /**
+     * @psalm-return array<int, array{
+     *     arguments: array<int, int<1, 24>>|array<int, array<int, int<1, 24>>>,
+     *     expected: array{
+     *         number: int<1, 24>,
+     *         name: non-empty-string,
+     *         short_name: non-empty-string,
+     *         hiragana_name: non-empty-string,
+     *         katakana_name: non-empty-string,
+     *         english_name: non-empty-string,
+     *         url: non-empty-string
+     *     }
+     * }>
+     *
      * @return array
      */
     public static function byNumberProvider(): array
@@ -273,6 +299,19 @@ final class StadiumDataProvider
     }
 
     /**
+     * @psalm-return array<int, array{
+     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
+     *     expected: array{
+     *         number: int<1, 24>,
+     *         name: non-empty-string,
+     *         short_name: non-empty-string,
+     *         hiragana_name: non-empty-string,
+     *         katakana_name: non-empty-string,
+     *         english_name: non-empty-string,
+     *         url: non-empty-string
+     *     }
+     * }>
+     *
      * @return array
      */
     public static function byNameProvider(): array
@@ -306,6 +345,19 @@ final class StadiumDataProvider
     }
 
     /**
+     * @psalm-return array<int, array{
+     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
+     *     expected: array{
+     *         number: int<1, 24>,
+     *         name: non-empty-string,
+     *         short_name: non-empty-string,
+     *         hiragana_name: non-empty-string,
+     *         katakana_name: non-empty-string,
+     *         english_name: non-empty-string,
+     *         url: non-empty-string
+     *     }
+     * }>
+     *
      * @return array
      */
     public static function byShortNameProvider(): array
@@ -339,6 +391,19 @@ final class StadiumDataProvider
     }
 
     /**
+     * @psalm-return array<int, array{
+     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
+     *     expected: array{
+     *         number: int<1, 24>,
+     *         name: non-empty-string,
+     *         short_name: non-empty-string,
+     *         hiragana_name: non-empty-string,
+     *         katakana_name: non-empty-string,
+     *         english_name: non-empty-string,
+     *         url: non-empty-string
+     *     }
+     * }>
+     *
      * @return array
      */
     public static function byHiraganaNameProvider(): array
@@ -372,6 +437,19 @@ final class StadiumDataProvider
     }
 
     /**
+     * @psalm-return array<int, array{
+     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
+     *     expected: array{
+     *         number: int<1, 24>,
+     *         name: non-empty-string,
+     *         short_name: non-empty-string,
+     *         hiragana_name: non-empty-string,
+     *         katakana_name: non-empty-string,
+     *         english_name: non-empty-string,
+     *         url: non-empty-string
+     *     }
+     * }>
+     *
      * @return array
      */
     public static function byKatakanaNameProvider(): array
@@ -405,6 +483,19 @@ final class StadiumDataProvider
     }
 
     /**
+     * @psalm-return array<int, array{
+     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
+     *     expected: array{
+     *         number: int<1, 24>,
+     *         name: non-empty-string,
+     *         short_name: non-empty-string,
+     *         hiragana_name: non-empty-string,
+     *         katakana_name: non-empty-string,
+     *         english_name: non-empty-string,
+     *         url: non-empty-string
+     *     }
+     * }>
+     *
      * @return array
      */
     public static function byEnglishNameProvider(): array
@@ -438,6 +529,19 @@ final class StadiumDataProvider
     }
 
     /**
+     * @psalm-return array<int, array{
+     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
+     *     expected: array{
+     *         number: int<1, 24>,
+     *         name: non-empty-string,
+     *         short_name: non-empty-string,
+     *         hiragana_name: non-empty-string,
+     *         katakana_name: non-empty-string,
+     *         english_name: non-empty-string,
+     *         url: non-empty-string
+     *     }
+     * }>
+     *
      * @return array
      */
     public static function byUrlProvider(): array
