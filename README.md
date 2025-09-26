@@ -10,10 +10,12 @@
 [![license](https://poser.pugx.org/bvp/stadium/license)](https://packagist.org/packages/bvp/stadium)
 
 ## 📦 Requirements
+
 - php: ^8.2
 - shimomo/helper: ^0.1
 
 ## 💾 Installation
+
 ```bash
 composer require bvp/stadium
 ```
@@ -53,6 +55,7 @@ Stadium::byUrl('suminoe');
 ```
 
 ### Stadium::all()
+
 ```php
 $stadium = Stadium::all();
 print_r($stadium);
@@ -334,6 +337,7 @@ Array
 </details>
 
 ### Stadium::byNumber()
+
 ```php
 $stadium = Stadium::byNumber(12);
 print_r($stadium);
@@ -358,6 +362,7 @@ Array
 </details>
 
 ### Stadium::byName()
+
 ```php
 $stadium = Stadium::byName('ボートレース住之江');
 print_r($stadium);
@@ -382,6 +387,7 @@ Array
 </details>
 
 ### Stadium::byShortName()
+
 ```php
 $stadium = Stadium::byShortName('住之江');
 print_r($stadium);
@@ -406,6 +412,7 @@ Array
 </details>
 
 ### Stadium::byHiraganaName()
+
 ```php
 $stadium = Stadium::byHiraganaName('すみのえ');
 print_r($stadium);
@@ -430,6 +437,7 @@ Array
 </details>
 
 ### Stadium::byKatakanaName()
+
 ```php
 $stadium = Stadium::byKatakanaName('スミノエ');
 print_r($stadium);
@@ -454,6 +462,7 @@ Array
 </details>
 
 ### Stadium::byEnglishName()
+
 ```php
 $stadium = Stadium::byEnglishName('suminoe');
 print_r($stadium);
@@ -478,6 +487,7 @@ Array
 </details>
 
 ### Stadium::byUrl()
+
 ```php
 $stadium = Stadium::byUrl('suminoe');
 print_r($stadium);
@@ -502,4 +512,5 @@ Array
 </details>
 
 ## 📄 License
+
 Stadium は [MIT license](LICENSE) の元で公開されています。
