@@ -37,13 +37,21 @@ final class StadiumCore implements StadiumCoreInterface
     ];
 
     /**
-     * @psalm-return void
+     * @psalm-param array<int, array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * }>|null $stadiums
      *
-     * @return void
+     * @param array|null $stadiums
      */
-    public function __construct()
+    public function __construct(?array $stadiums = null)
     {
-        $this->stadiums = require __DIR__ . '/../config/stadiums.php';
+        $this->stadiums = $stadiums ?? require __DIR__ . '/../config/stadiums.php';
     }
 
     /**
