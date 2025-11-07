@@ -169,7 +169,7 @@ final class StadiumCore implements StadiumCoreInterface
             );
         }
 
-        return $this->stadiums;
+        return $this->convertToKeyedArray($this->stadiums, 'number');
     }
 
     /**
@@ -235,6 +235,58 @@ final class StadiumCore implements StadiumCoreInterface
 
         $partialMatchedStadium = reset($partialMatchedStadiums);
         return $partialMatchedStadium === false ? null : $partialMatchedStadium;
+    }
+
+    /**
+     * @psalm-param list<array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * }>|array<int, array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * }> $array
+     * @psalm-param non-empty-string $key
+     * @psalm-return array<int, array{
+     *     number: int<1, 24>,
+     *     name: non-empty-string,
+     *     short_name: non-empty-string,
+     *     hiragana_name: non-empty-string,
+     *     katakana_name: non-empty-string,
+     *     english_name: non-empty-string,
+     *     url: non-empty-string
+     * }>
+     *
+     * @param array $array
+     * @param string $key
+     * @return array
+     */
+    private function convertToKeyedArray(array $array, string $key): array
+    {
+        /** @psalm-var array<array-key, int<1, 24>|non-empty-string> */
+        $keys = array_column($array, $key);
+
+        /**
+         * @psalm-var array<int, array{
+         *     number: int<1, 24>,
+         *     name: non-empty-string,
+         *     short_name: non-empty-string,
+         *     hiragana_name: non-empty-string,
+         *     katakana_name: non-empty-string,
+         *     english_name: non-empty-string,
+         *     url: non-empty-string
+         * }>
+         */
+        return array_combine($keys, $array);
     }
 
     /**

@@ -31,7 +31,7 @@ final class StadiumDataProvider
             [
                 'arguments' => [],
                 'expected' => [
-                    [
+                    1 => [
                         'number' => 1,
                         'name' => 'ボートレース桐生',
                         'short_name' => '桐生',
@@ -40,7 +40,7 @@ final class StadiumDataProvider
                         'english_name' => 'kiryu',
                         'url' => 'http://www.kiryu-kyotei.com/',
                     ],
-                    [
+                    2 => [
                         'number' => 2,
                         'name' => 'ボートレース戸田',
                         'short_name' => '戸田',
@@ -49,7 +49,7 @@ final class StadiumDataProvider
                         'english_name' => 'toda',
                         'url' => 'https://www.boatrace-toda.jp/',
                     ],
-                    [
+                    3 => [
                         'number' => 3,
                         'name' => 'ボートレース江戸川',
                         'short_name' => '江戸川',
@@ -58,7 +58,7 @@ final class StadiumDataProvider
                         'english_name' => 'edogawa',
                         'url' => 'https://boatrace-edogawa.com/',
                     ],
-                    [
+                    4 => [
                         'number' => 4,
                         'name' => 'ボートレース平和島',
                         'short_name' => '平和島',
@@ -67,7 +67,7 @@ final class StadiumDataProvider
                         'english_name' => 'heiwajima',
                         'url' => 'https://www.heiwajima.gr.jp/',
                     ],
-                    [
+                    5 => [
                         'number' => 5,
                         'name' => 'ボートレース多摩川',
                         'short_name' => '多摩川',
@@ -76,7 +76,7 @@ final class StadiumDataProvider
                         'english_name' => 'tamagawa',
                         'url' => 'https://boatrace-tamagawa.com/',
                     ],
-                    [
+                    6 => [
                         'number' => 6,
                         'name' => 'ボートレース浜名湖',
                         'short_name' => '浜名湖',
@@ -85,7 +85,7 @@ final class StadiumDataProvider
                         'english_name' => 'hamanako',
                         'url' => 'https://www.boatrace-hamanako.jp/',
                     ],
-                    [
+                    7 => [
                         'number' => 7,
                         'name' => 'ボートレース蒲郡',
                         'short_name' => '蒲郡',
@@ -94,7 +94,7 @@ final class StadiumDataProvider
                         'english_name' => 'gamagori',
                         'url' => 'https://www.gamagori-kyotei.com/',
                     ],
-                    [
+                    8 => [
                         'number' => 8,
                         'name' => 'ボートレース常滑',
                         'short_name' => '常滑',
@@ -103,7 +103,7 @@ final class StadiumDataProvider
                         'english_name' => 'tokoname',
                         'url' => 'https://www.boatrace-tokoname.jp/',
                     ],
-                    [
+                    9 => [
                         'number' => 9,
                         'name' => 'ボートレース津',
                         'short_name' => '津',
@@ -112,7 +112,7 @@ final class StadiumDataProvider
                         'english_name' => 'tsu',
                         'url' => 'https://www.boatrace-tsu.com/',
                     ],
-                    [
+                    10 => [
                         'number' => 10,
                         'name' => 'ボートレース三国',
                         'short_name' => '三国',
@@ -121,7 +121,7 @@ final class StadiumDataProvider
                         'english_name' => 'mikuni',
                         'url' => 'https://www.boatrace-mikuni.jp/',
                     ],
-                    [
+                    11 => [
                         'number' => 11,
                         'name' => 'ボートレースびわこ',
                         'short_name' => 'びわこ',
@@ -130,7 +130,7 @@ final class StadiumDataProvider
                         'english_name' => 'biwako',
                         'url' => 'https://www.boatrace-biwako.jp/',
                     ],
-                    [
+                    12 => [
                         'number' => 12,
                         'name' => 'ボートレース住之江',
                         'short_name' => '住之江',
@@ -139,7 +139,7 @@ final class StadiumDataProvider
                         'english_name' => 'suminoe',
                         'url' => 'https://www.boatrace-suminoe.jp/',
                     ],
-                    [
+                    13 => [
                         'number' => 13,
                         'name' => 'ボートレース尼崎',
                         'short_name' => '尼崎',
@@ -148,7 +148,7 @@ final class StadiumDataProvider
                         'english_name' => 'amagasaki',
                         'url' => 'https://boatrace-amagasaki.jp/',
                     ],
-                    [
+                    14 => [
                         'number' => 14,
                         'name' => 'ボートレース鳴門',
                         'short_name' => '鳴門',
@@ -157,7 +157,7 @@ final class StadiumDataProvider
                         'english_name' => 'naruto',
                         'url' => 'https://www.n14.jp/',
                     ],
-                    [
+                    15 => [
                         'number' => 15,
                         'name' => 'ボートレース丸亀',
                         'short_name' => '丸亀',
@@ -166,7 +166,7 @@ final class StadiumDataProvider
                         'english_name' => 'marugame',
                         'url' => 'https://www.marugameboat.jp/',
                     ],
-                    [
+                    16 => [
                         'number' => 16,
                         'name' => 'ボートレース児島',
                         'short_name' => '児島',
@@ -175,7 +175,7 @@ final class StadiumDataProvider
                         'english_name' => 'kojima',
                         'url' => 'https://www.kojimaboat.jp/',
                     ],
-                    [
+                    17 => [
                         'number' => 17,
                         'name' => 'ボートレース宮島',
                         'short_name' => '宮島',
@@ -184,7 +184,7 @@ final class StadiumDataProvider
                         'english_name' => 'miyajima',
                         'url' => 'https://www.boatrace-miyajima.com/',
                     ],
-                    [
+                    18 => [
                         'number' => 18,
                         'name' => 'ボートレース徳山',
                         'short_name' => '徳山',
@@ -193,7 +193,7 @@ final class StadiumDataProvider
                         'english_name' => 'tokuyama',
                         'url' => 'https://www.boatrace-tokuyama.jp/',
                     ],
-                    [
+                    19 => [
                         'number' => 19,
                         'name' => 'ボートレース下関',
                         'short_name' => '下関',
@@ -202,7 +202,7 @@ final class StadiumDataProvider
                         'english_name' => 'shimonoseki',
                         'url' => 'https://www.boatrace-shimonoseki.jp/',
                     ],
-                    [
+                    20 => [
                         'number' => 20,
                         'name' => 'ボートレース若松',
                         'short_name' => '若松',
@@ -211,7 +211,7 @@ final class StadiumDataProvider
                         'english_name' => 'wakamatsu',
                         'url' => 'https://www.wmb.jp/',
                     ],
-                    [
+                    21 => [
                         'number' => 21,
                         'name' => 'ボートレース芦屋',
                         'short_name' => '芦屋',
@@ -220,7 +220,7 @@ final class StadiumDataProvider
                         'english_name' => 'ashiya',
                         'url' => 'https://www.boatrace-ashiya.com/',
                     ],
-                    [
+                    22 => [
                         'number' => 22,
                         'name' => 'ボートレース福岡',
                         'short_name' => '福岡',
@@ -229,7 +229,7 @@ final class StadiumDataProvider
                         'english_name' => 'fukuoka',
                         'url' => 'https://www.boatrace-fukuoka.com/',
                     ],
-                    [
+                    23 => [
                         'number' => 23,
                         'name' => 'ボートレース唐津',
                         'short_name' => '唐津',
@@ -238,7 +238,7 @@ final class StadiumDataProvider
                         'english_name' => 'karatsu',
                         'url' => 'https://www.boatrace-karatsu.jp/',
                     ],
-                    [
+                    24 => [
                         'number' => 24,
                         'name' => 'ボートレース大村',
                         'short_name' => '大村',
