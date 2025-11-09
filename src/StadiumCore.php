@@ -7,27 +7,38 @@ namespace BVP\Stadium;
 use Shimomo\Helper\Arr;
 
 /**
+ * @psalm-import-type Stadium from StadiumType
+ * @psalm-method array<int<1, 24>, Stadium> all()
+ * @psalm-method Stadium byNumber(int|list<int> $arguments)
+ * @psalm-method Stadium byName(string|list<string> $arguments)
+ * @psalm-method Stadium byShortName(string|list<string> $arguments)
+ * @psalm-method Stadium byHiraganaName(string|list<string> $arguments)
+ * @psalm-method Stadium byKatakanaName(string|list<string> $arguments)
+ * @psalm-method Stadium byEnglishName(string|list<string> $arguments)
+ * @psalm-method Stadium byUrl(string|list<string> $arguments)
+ *
+ * @method array<int<1, 24>, Stadium> all()
+ * @method Stadium byNumber(int|list<int> $arguments)
+ * @method Stadium byName(string|list<string> $arguments)
+ * @method Stadium byShortName(string|list<string> $arguments)
+ * @method Stadium byHiraganaName(string|list<string> $arguments)
+ * @method Stadium byKatakanaName(string|list<string> $arguments)
+ * @method Stadium byEnglishName(string|list<string> $arguments)
+ * @method Stadium byUrl(string|list<string> $arguments)
+ *
  * @author shimomo
  */
 final class StadiumCore implements StadiumCoreInterface
 {
     /**
-     * @psalm-var array<int, array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }>
+     * @psalm-var list<Stadium>
      *
      * @var array
      */
     private array $stadiums;
 
     /**
-     * @psalm-var array<non-empty-string, non-empty-string>
+     * @psalm-var array<non-empty-string, 'all'|'by'>
      *
      * @var array
      */
@@ -37,47 +48,24 @@ final class StadiumCore implements StadiumCoreInterface
     ];
 
     /**
-     * @psalm-param array<int, array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }>|null $stadiums
+     * @psalm-param ?list<Stadium> $stadiums
      *
-     * @param array|null $stadiums
+     * @param ?array $stadiums
      */
     public function __construct(?array $stadiums = null)
     {
+        /** @psalm-var list<Stadium> */
         $this->stadiums = $stadiums ?? require __DIR__ . '/../config/stadiums.php';
     }
 
     /**
      * @psalm-param non-empty-string $name
-     * @psalm-param array<int, mixed> $arguments
-     * @psalm-return array<int, array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }>|array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }|null
+     * @psalm-param list<mixed> $arguments
+     * @psalm-return list<Stadium>|Stadium|null
      *
      * @param string $name
      * @param array $arguments
-     * @return array|null
+     * @return ?array
      */
     public function __call(string $name, array $arguments): ?array
     {
@@ -86,28 +74,12 @@ final class StadiumCore implements StadiumCoreInterface
 
     /**
      * @psalm-param non-empty-string $name
-     * @psalm-param array<int, mixed> $arguments
-     * @psalm-return array<int, array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }>|array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }|null
+     * @psalm-param list<mixed> $arguments
+     * @psalm-return list<Stadium>|Stadium|null
      *
      * @param string $name
      * @param array $arguments
-     * @return array|null
+     * @return ?array
      * @throws \BadMethodCallException
      */
     private function resolveMethod(string $name, array $arguments): ?array
@@ -115,23 +87,12 @@ final class StadiumCore implements StadiumCoreInterface
         foreach ($this->resolveMethodMap as $pattern => $method) {
             if (preg_match($pattern, $name, $matches)) {
                 if (is_callable([$this, $method])) {
-                    /** @psalm-var array<int, array{
-                     *     number: int<1, 24>,
-                     *     name: non-empty-string,
-                     *     short_name: non-empty-string,
-                     *     hiragana_name: non-empty-string,
-                     *     katakana_name: non-empty-string,
-                     *     english_name: non-empty-string,
-                     *     url: non-empty-string
-                     * }>|array{
-                     *     number: int<1, 24>,
-                     *     name: non-empty-string,
-                     *     short_name: non-empty-string,
-                     *     hiragana_name: non-empty-string,
-                     *     katakana_name: non-empty-string,
-                     *     english_name: non-empty-string,
-                     *     url: non-empty-string
-                     * }|null */
+                    if ($method === 'all') {
+                        /** @psalm-var array<int<1, 24>, Stadium> */
+                        return $this->$method();
+                    }
+
+                    /** @psalm-var list<Stadium>|Stadium|null */
                     return $this->$method($matches[1], $arguments);
                 }
             }
@@ -143,51 +104,23 @@ final class StadiumCore implements StadiumCoreInterface
     }
 
     /**
-     * @psalm-param non-empty-string $name
-     * @psalm-param array<int, mixed> $arguments
-     * @psalm-return array<int, array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }>
+     * @psalm-return array<int<1, 24>, Stadium>
      *
-     * @param string $name
-     * @param array $arguments
      * @return array
-     * @throws \InvalidArgumentException
      */
-    private function all(string $name, array $arguments): array
+    private function all(): array
     {
-        if (($countArguments = count($arguments)) !== 0) {
-            throw new \InvalidArgumentException(
-                __METHOD__ . "() - Too many arguments to function " . self::class . "::{$name}(), " .
-                "{$countArguments} passed and exactly 1 expected."
-            );
-        }
-
         return $this->convertToKeyedArray($this->stadiums, 'number');
     }
 
     /**
      * @psalm-param non-empty-string $name
-     * @psalm-param array<int, mixed> $arguments
-     * @psalm-return array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }|null
+     * @psalm-param list<mixed> $arguments
+     * @psalm-return ?Stadium
      *
      * @param string $name
      * @param array $arguments
-     * @return array|null
+     * @return ?array
      * @throws \InvalidArgumentException
      */
     private function by(string $name, array $arguments): ?array
@@ -211,15 +144,7 @@ final class StadiumCore implements StadiumCoreInterface
 
         $exactMatchedStadium = Arr::firstWhere($this->stadiums, $snakeCaseName, $flattenArguments[0]);
         if (!is_null($exactMatchedStadium)) {
-            /** @psalm-var array{
-             *     number: int<1, 24>,
-             *     name: non-empty-string,
-             *     short_name: non-empty-string,
-             *     hiragana_name: non-empty-string,
-             *     katakana_name: non-empty-string,
-             *     english_name: non-empty-string,
-             *     url: non-empty-string
-             * } */
+            /** @psalm-var Stadium */
             return $exactMatchedStadium;
         }
 
@@ -238,33 +163,9 @@ final class StadiumCore implements StadiumCoreInterface
     }
 
     /**
-     * @psalm-param list<array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }>|array<int, array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }> $array
+     * @psalm-param list<Stadium>|array<int<1, 24>, Stadium> $array
      * @psalm-param non-empty-string $key
-     * @psalm-return array<int, array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }>
+     * @psalm-return array<int<1, 24>, Stadium>
      *
      * @param array $array
      * @param string $key
@@ -275,17 +176,7 @@ final class StadiumCore implements StadiumCoreInterface
         /** @psalm-var array<array-key, int<1, 24>|non-empty-string> */
         $keys = array_column($array, $key);
 
-        /**
-         * @psalm-var array<int, array{
-         *     number: int<1, 24>,
-         *     name: non-empty-string,
-         *     short_name: non-empty-string,
-         *     hiragana_name: non-empty-string,
-         *     katakana_name: non-empty-string,
-         *     english_name: non-empty-string,
-         *     url: non-empty-string
-         * }>
-         */
+        /** @psalm-var array<int<1, 24>, Stadium> */
         return array_combine($keys, $array);
     }
 
@@ -298,6 +189,6 @@ final class StadiumCore implements StadiumCoreInterface
      */
     private function convertToSnakeCase(string $value): string
     {
-        return ltrim(strtolower(preg_replace('/[A-Z]/', '_$0', $value) ?? ''), '_');
+        return ltrim(strtolower((string) preg_replace('/[A-Z]/', '_$0', $value)), '_');
     }
 }

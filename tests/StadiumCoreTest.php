@@ -9,11 +9,14 @@ use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @psalm-import-type Stadium from \BVP\Stadium\StadiumType
+ *
  * @author shimomo
  */
 final class StadiumCoreTest extends TestCase
 {
     /**
+     * @psalm-suppress PropertyNotSetInConstructor
      * @psalm-var \BVP\Stadium\StadiumCore
      *
      * @var \BVP\Stadium\StadiumCore
@@ -25,45 +28,28 @@ final class StadiumCoreTest extends TestCase
      *
      * @return void
      */
+    #[\Override]
     protected function setUp(): void
     {
         $this->stadium = new StadiumCore();
     }
 
     /**
-     * @psalm-param array<empty, empty> $arguments
-     * @psalm-param array<int, array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * }> $expected
+     * @psalm-param array<int<1, 24>, Stadium> $expected
      * @psalm-return void
      *
-     * @param array $arguments
      * @param array $expected
      * @return void
      */
     #[DataProviderExternal(StadiumDataProvider::class, 'allProvider')]
-    public function testAll(array $arguments, array $expected): void
+    public function testAll(array $expected): void
     {
-        $this->assertSame($expected, $this->stadium->all(...$arguments));
+        $this->assertSame($expected, $this->stadium->all());
     }
 
     /**
-     * @psalm-param array<int, int<1, 24>>|array<int, array<int, int<1, 24>>> $arguments
-     * @psalm-param array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * } $expected
+     * @psalm-param non-empty-list<int<1, 24>>|non-empty-list<non-empty-list<int<1, 24>>> $arguments
+     * @psalm-param Stadium $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -77,16 +63,8 @@ final class StadiumCoreTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
-     * @psalm-param array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * } $expected
+     * @psalm-param non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>> $arguments
+     * @psalm-param Stadium $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -100,16 +78,8 @@ final class StadiumCoreTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
-     * @psalm-param array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * } $expected
+     * @psalm-param non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>> $arguments
+     * @psalm-param Stadium $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -123,16 +93,8 @@ final class StadiumCoreTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
-     * @psalm-param array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * } $expected
+     * @psalm-param non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>> $arguments
+     * @psalm-param Stadium $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -146,16 +108,8 @@ final class StadiumCoreTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
-     * @psalm-param array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * } $expected
+     * @psalm-param non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>> $arguments
+     * @psalm-param Stadium $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -169,16 +123,8 @@ final class StadiumCoreTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
-     * @psalm-param array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * } $expected
+     * @psalm-param non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>> $arguments
+     * @psalm-param Stadium $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -192,16 +138,8 @@ final class StadiumCoreTest extends TestCase
     }
 
     /**
-     * @psalm-param array<int, non-empty-string>|array<int, array<int, non-empty-string>> $arguments
-     * @psalm-param array{
-     *     number: int<1, 24>,
-     *     name: non-empty-string,
-     *     short_name: non-empty-string,
-     *     hiragana_name: non-empty-string,
-     *     katakana_name: non-empty-string,
-     *     english_name: non-empty-string,
-     *     url: non-empty-string
-     * } $expected
+     * @psalm-param non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>> $arguments
+     * @psalm-param Stadium $expected
      * @psalm-return void
      *
      * @param array $arguments
@@ -227,6 +165,7 @@ final class StadiumCoreTest extends TestCase
             "Call to undefined method 'BVP\Stadium\StadiumCore::ghost()'."
         );
 
+        /** @psalm-suppress UndefinedMagicMethod */
         $this->stadium->ghost();
     }
 
@@ -244,6 +183,7 @@ final class StadiumCoreTest extends TestCase
             "0 passed and exactly 1 expected."
         );
 
+        /** @psalm-suppress TooFewArguments */
         $this->stadium->byNumber();
     }
 
@@ -261,6 +201,7 @@ final class StadiumCoreTest extends TestCase
             "2 passed and exactly 1 expected."
         );
 
+        /** @psalm-suppress TooManyArguments */
         $this->stadium->byNumber(12, 34);
     }
 }

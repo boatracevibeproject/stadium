@@ -5,22 +5,15 @@ declare(strict_types=1);
 namespace BVP\Stadium\Tests;
 
 /**
+ * @psalm-import-type Stadium from \BVP\Stadium\StadiumType
+ *
  * @author shimomo
  */
 final class StadiumDataProvider
 {
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<empty, empty>,
-     *     expected: array<int, array{
-     *         number: int<1, 24>,
-     *         name: non-empty-string,
-     *         short_name: non-empty-string,
-     *         hiragana_name: non-empty-string,
-     *         katakana_name: non-empty-string,
-     *         english_name: non-empty-string,
-     *         url: non-empty-string
-     *     }>
+     * @psalm-return non-empty-list<array{
+     *     expected: array<int<1, 24>, Stadium>
      * }>
      *
      * @return array
@@ -29,7 +22,6 @@ final class StadiumDataProvider
     {
         return [
             [
-                'arguments' => [],
                 'expected' => [
                     1 => [
                         'number' => 1,
@@ -253,17 +245,9 @@ final class StadiumDataProvider
     }
 
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<int, int<1, 24>>|array<int, array<int, int<1, 24>>>,
-     *     expected: array{
-     *         number: int<1, 24>,
-     *         name: non-empty-string,
-     *         short_name: non-empty-string,
-     *         hiragana_name: non-empty-string,
-     *         katakana_name: non-empty-string,
-     *         english_name: non-empty-string,
-     *         url: non-empty-string
-     *     }
+     * @psalm-return non-empty-list<array{
+     *     arguments: non-empty-list<int<1, 24>>|non-empty-list<non-empty-list<int<1, 24>>>,
+     *     expected: Stadium
      * }>
      *
      * @return array
@@ -299,17 +283,9 @@ final class StadiumDataProvider
     }
 
     /**
-     * @psalm-return array<int, array{
-     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
-     *     expected: array{
-     *         number: int<1, 24>,
-     *         name: non-empty-string,
-     *         short_name: non-empty-string,
-     *         hiragana_name: non-empty-string,
-     *         katakana_name: non-empty-string,
-     *         english_name: non-empty-string,
-     *         url: non-empty-string
-     *     }
+     * @psalm-return non-empty-list<array{
+     *     arguments: non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>>,
+     *     expected: Stadium
      * }>
      *
      * @return array
@@ -346,16 +322,8 @@ final class StadiumDataProvider
 
     /**
      * @psalm-return array<int, array{
-     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
-     *     expected: array{
-     *         number: int<1, 24>,
-     *         name: non-empty-string,
-     *         short_name: non-empty-string,
-     *         hiragana_name: non-empty-string,
-     *         katakana_name: non-empty-string,
-     *         english_name: non-empty-string,
-     *         url: non-empty-string
-     *     }
+     *     arguments: non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>>,
+     *     expected: Stadium
      * }>
      *
      * @return array
@@ -392,16 +360,8 @@ final class StadiumDataProvider
 
     /**
      * @psalm-return array<int, array{
-     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
-     *     expected: array{
-     *         number: int<1, 24>,
-     *         name: non-empty-string,
-     *         short_name: non-empty-string,
-     *         hiragana_name: non-empty-string,
-     *         katakana_name: non-empty-string,
-     *         english_name: non-empty-string,
-     *         url: non-empty-string
-     *     }
+     *     arguments: non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>>,
+     *     expected: Stadium
      * }>
      *
      * @return array
@@ -438,16 +398,8 @@ final class StadiumDataProvider
 
     /**
      * @psalm-return array<int, array{
-     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
-     *     expected: array{
-     *         number: int<1, 24>,
-     *         name: non-empty-string,
-     *         short_name: non-empty-string,
-     *         hiragana_name: non-empty-string,
-     *         katakana_name: non-empty-string,
-     *         english_name: non-empty-string,
-     *         url: non-empty-string
-     *     }
+     *     arguments: non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>>,
+     *     expected: Stadium
      * }>
      *
      * @return array
@@ -484,16 +436,8 @@ final class StadiumDataProvider
 
     /**
      * @psalm-return array<int, array{
-     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
-     *     expected: array{
-     *         number: int<1, 24>,
-     *         name: non-empty-string,
-     *         short_name: non-empty-string,
-     *         hiragana_name: non-empty-string,
-     *         katakana_name: non-empty-string,
-     *         english_name: non-empty-string,
-     *         url: non-empty-string
-     *     }
+     *     arguments: non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>>,
+     *     expected: Stadium
      * }>
      *
      * @return array
@@ -530,16 +474,8 @@ final class StadiumDataProvider
 
     /**
      * @psalm-return array<int, array{
-     *     arguments: array<int, non-empty-string>|array<int, array<int, non-empty-string>>,
-     *     expected: array{
-     *         number: int<1, 24>,
-     *         name: non-empty-string,
-     *         short_name: non-empty-string,
-     *         hiragana_name: non-empty-string,
-     *         katakana_name: non-empty-string,
-     *         english_name: non-empty-string,
-     *         url: non-empty-string
-     *     }
+     *     arguments: non-empty-list<non-empty-string>|non-empty-list<non-empty-list<non-empty-string>>,
+     *     expected: Stadium
      * }>
      *
      * @return array
