@@ -7,7 +7,7 @@ namespace BVP\Stadium;
 /**
  * @author shimomo
  */
-interface StadiumCoreInterface
+interface StadiumDispatcherInterface
 {
     //
 }

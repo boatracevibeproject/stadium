@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BVP\Stadium\Tests;
 
-use BVP\Stadium\StadiumCore;
+use BVP\Stadium\StadiumDispatcher;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
@@ -13,15 +13,15 @@ use PHPUnit\Framework\TestCase;
  *
  * @author shimomo
  */
-final class StadiumCoreTest extends TestCase
+final class StadiumDispatcherTest extends TestCase
 {
     /**
      * @psalm-suppress PropertyNotSetInConstructor
-     * @psalm-var \BVP\Stadium\StadiumCore
+     * @psalm-var \BVP\Stadium\StadiumDispatcher
      *
-     * @var \BVP\Stadium\StadiumCore
+     * @var \BVP\Stadium\StadiumDispatcher
      */
-    protected StadiumCore $stadium;
+    protected StadiumDispatcher $stadium;
 
     /**
      * @psalm-return void
@@ -31,7 +31,7 @@ final class StadiumCoreTest extends TestCase
     #[\Override]
     protected function setUp(): void
     {
-        $this->stadium = new StadiumCore();
+        $this->stadium = new StadiumDispatcher();
     }
 
     /**
@@ -161,8 +161,8 @@ final class StadiumCoreTest extends TestCase
     {
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage(
-            "BVP\Stadium\StadiumCore::resolveMethod() - " .
-            "Call to undefined method 'BVP\Stadium\StadiumCore::ghost()'."
+            "BVP\Stadium\StadiumDispatcher::resolveMethod() - " .
+            "Call to undefined method 'BVP\Stadium\StadiumDispatcher::ghost()'."
         );
 
         /** @psalm-suppress UndefinedMagicMethod */
@@ -178,8 +178,8 @@ final class StadiumCoreTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            "BVP\Stadium\StadiumCore::by() - " .
-            "Too few arguments to function BVP\Stadium\StadiumCore::byNumber(), " .
+            "BVP\Stadium\StadiumDispatcher::by() - " .
+            "Too few arguments to function BVP\Stadium\StadiumDispatcher::byNumber(), " .
             "0 passed and exactly 1 expected."
         );
 
@@ -196,8 +196,8 @@ final class StadiumCoreTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            "BVP\Stadium\StadiumCore::by() - " .
-            "Too many arguments to function BVP\Stadium\StadiumCore::byNumber(), " .
+            "BVP\Stadium\StadiumDispatcher::by() - " .
+            "Too many arguments to function BVP\Stadium\StadiumDispatcher::byNumber(), " .
             "2 passed and exactly 1 expected."
         );
 

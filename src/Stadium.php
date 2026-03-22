@@ -36,11 +36,11 @@ final class Stadium implements StadiumInterface
     private static ?StadiumInterface $instance;
 
     /**
-     * @psalm-param \BVP\Stadium\StadiumCoreInterface $stadium
+     * @psalm-param \BVP\Stadium\StadiumDispatcherInterface $stadium
      *
-     * @param \BVP\Stadium\StadiumCoreInterface $stadium
+     * @param \BVP\Stadium\StadiumDispatcherInterface $stadium
      */
-    public function __construct(private readonly StadiumCoreInterface $stadium)
+    public function __construct(private readonly StadiumDispatcherInterface $stadium)
     {
         //
     }
@@ -76,29 +76,29 @@ final class Stadium implements StadiumInterface
     }
 
     /**
-     * @psalm-param ?\BVP\Stadium\StadiumCoreInterface $stadiumCore
+     * @psalm-param ?\BVP\Stadium\StadiumDispatcherInterface $stadiumDispatcher
      * @psalm-return \BVP\Stadium\StadiumInterface
      *
-     * @param ?\BVP\Stadium\StadiumCoreInterface $stadiumCore
+     * @param ?\BVP\Stadium\StadiumDispatcherInterface $stadiumDispatcher
      * @return \BVP\Stadium\StadiumInterface
      */
     #[\Override]
-    public static function getInstance(?StadiumCoreInterface $stadiumCore = null): StadiumInterface
+    public static function getInstance(?StadiumDispatcherInterface $stadiumDispatcher = null): StadiumInterface
     {
-        return self::$instance ??= new self($stadiumCore ?? new StadiumCore());
+        return self::$instance ??= new self($stadiumDispatcher ?? new StadiumDispatcher());
     }
 
     /**
-     * @psalm-param ?\BVP\Stadium\StadiumCoreInterface $stadiumCore
+     * @psalm-param ?\BVP\Stadium\StadiumDispatcherInterface $stadiumDispatcher
      * @psalm-return \BVP\Stadium\StadiumInterface
      *
-     * @param ?\BVP\Stadium\StadiumCoreInterface $stadiumCore
+     * @param ?\BVP\Stadium\StadiumDispatcherInterface $stadiumDispatcher
      * @return \BVP\Stadium\StadiumInterface
      */
     #[\Override]
-    public static function createInstance(?StadiumCoreInterface $stadiumCore = null): StadiumInterface
+    public static function createInstance(?StadiumDispatcherInterface $stadiumDispatcher = null): StadiumInterface
     {
-        return self::$instance = new self($stadiumCore ?? new StadiumCore());
+        return self::$instance = new self($stadiumDispatcher ?? new StadiumDispatcher());
     }
 
     /**

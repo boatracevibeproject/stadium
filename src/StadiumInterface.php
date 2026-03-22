@@ -10,22 +10,22 @@ namespace BVP\Stadium;
 interface StadiumInterface
 {
     /**
-     * @psalm-param ?\BVP\Stadium\StadiumCoreInterface $stadiumCore
+     * @psalm-param ?\BVP\Stadium\StadiumDispatcherInterface $stadiumDispatcher
      * @psalm-return \BVP\Stadium\StadiumInterface
      *
-     * @param ?\BVP\Stadium\StadiumCoreInterface $stadiumCore
+     * @param ?\BVP\Stadium\StadiumDispatcherInterface $stadiumDispatcher
      * @return \BVP\Stadium\StadiumInterface
      */
-    public static function getInstance(?StadiumCoreInterface $stadiumCore = null): StadiumInterface;
+    public static function getInstance(?StadiumDispatcherInterface $stadiumDispatcher = null): StadiumInterface;
 
     /**
-     * @psalm-param ?\BVP\Stadium\StadiumCoreInterface $stadiumCore
+     * @psalm-param ?\BVP\Stadium\StadiumDispatcherInterface $stadiumDispatcher
      * @psalm-return \BVP\Stadium\StadiumInterface
      *
-     * @param ?\BVP\Stadium\StadiumCoreInterface $stadiumCore
+     * @param ?\BVP\Stadium\StadiumDispatcherInterface $stadiumDispatcher
      * @return \BVP\Stadium\StadiumInterface
      */
-    public static function createInstance(?StadiumCoreInterface $stadiumCore = null): StadiumInterface;
+    public static function createInstance(?StadiumDispatcherInterface $stadiumDispatcher = null): StadiumInterface;
 
     /**
      * @psalm-return void

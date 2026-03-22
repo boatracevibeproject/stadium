@@ -28,7 +28,7 @@ use Shimomo\Helper\Arr;
  *
  * @author shimomo
  */
-final class StadiumCore implements StadiumCoreInterface
+final class StadiumDispatcher implements StadiumDispatcherInterface
 {
     /**
      * @psalm-var list<Stadium>
