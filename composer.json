@@ -1,13 +1,12 @@
 {
-    "$schema": "https://getcomposer.org/schema.json",
     "name": "bvp/stadium",
     "description": "BVP Stadium",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "boatrace",
         "library"
     ],
-    "license": "MIT",
-    "type": "library",
     "authors": [
         {
             "name": "shimomo",
@@ -23,8 +22,8 @@
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.52",
-        "phpunit/phpunit": "^12.5.8 || ^13.0",
-        "vimeo/psalm": "^6.0"
+        "phpunit/phpunit": "^10.5.62 || ^11.5.50 || ^12.5.8 || ^13.0",
+        "vimeo/psalm": "^5.0 || ^6.0"
     },
     "autoload": {
         "psr-4": {
@@ -40,5 +39,6 @@
         "allow-plugins": {
             "ergebnis/composer-normalize": true
         }
-    }
+    },
+    "$schema": "https://getcomposer.org/schema.json"
 }
