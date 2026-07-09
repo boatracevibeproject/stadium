@@ -21,7 +21,7 @@ final class StadiumTest extends TestCase
      * @return void
      */
     #[Test]
-    #[DataProviderExternal(StadiumDataProvider::class, 'prefectureFromProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'stadiumFromProvider')]
     public function testStadiumFrom(int|string $value, ?StadiumEnum $expected): void
     {
         $this->assertSame($expected, Stadium::from($value));
@@ -33,7 +33,7 @@ final class StadiumTest extends TestCase
      * @return void
      */
     #[Test]
-    #[DataProviderExternal(StadiumDataProvider::class, 'prefectureFromNumberProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'stadiumFromNumberProvider')]
     public function testStadiumFromNumber(int $number, ?StadiumEnum $expected): void
     {
         $this->assertSame($expected, Stadium::fromNumber($number));
@@ -45,7 +45,7 @@ final class StadiumTest extends TestCase
      * @return void
      */
     #[Test]
-    #[DataProviderExternal(StadiumDataProvider::class, 'prefectureFromNameProvider')]
+    #[DataProviderExternal(StadiumDataProvider::class, 'stadiumFromNameProvider')]
     public function testStadiumFromName(string $name, ?StadiumEnum $expected): void
     {
         $this->assertSame($expected, Stadium::fromName($name));

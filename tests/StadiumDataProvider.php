@@ -38,12 +38,12 @@ final class StadiumDataProvider
      *   expected: ?\BVP\Stadium\Enums\Stadium,
      * }>
      */
-    public static function prefectureFromNumberProvider(): array
+    public static function stadiumFromNumberProvider(): array
     {
         return [
-            ['value' => 0, 'expected' => null],
-            ['value' => 1, 'expected' => StadiumEnum::kiryu],
-            ['value' => 2, 'expected' => StadiumEnum::toda],
+            ['number' => 0, 'expected' => null],
+            ['number' => 1, 'expected' => StadiumEnum::kiryu],
+            ['number' => 2, 'expected' => StadiumEnum::toda],
         ];
     }
 
@@ -53,15 +53,15 @@ final class StadiumDataProvider
      *   expected: ?\BVP\Stadium\Enums\Stadium,
      * }>
      */
-    public static function prefectureFromNameProvider(): array
+    public static function stadiumFromNameProvider(): array
     {
         return [
-            ['value' => '', 'expected' => null],
-            ['value' => 'ボートレース戸田', 'expected' => StadiumEnum::toda],
-            ['value' => '戸田', 'expected' => StadiumEnum::toda],
-            ['value' => 'ぼーとれーすとだ', 'expected' => StadiumEnum::toda],
-            ['value' => 'ボートレーストダ', 'expected' => StadiumEnum::toda],
-            ['value' => 'toda', 'expected' => StadiumEnum::toda],
+            ['name' => '', 'expected' => null],
+            ['name' => 'ボートレース戸田', 'expected' => StadiumEnum::toda],
+            ['name' => '戸田', 'expected' => StadiumEnum::toda],
+            ['name' => 'ぼーとれーすとだ', 'expected' => StadiumEnum::toda],
+            ['name' => 'ボートレーストダ', 'expected' => StadiumEnum::toda],
+            ['name' => 'toda', 'expected' => StadiumEnum::toda],
         ];
     }
 }
