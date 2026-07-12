@@ -13,8 +13,8 @@ final class StadiumDataProvider
 {
     /**
      * @return non-empty-list<array{
-     *   number: int|string,
-     *   expected: ?\BVP\Stadium\Enums\Stadium,
+     *     number: int|string,
+     *     expected: ?\BVP\Stadium\Enums\Stadium,
      * }>
      */
     public static function stadiumFromProvider(): array
@@ -34,8 +34,8 @@ final class StadiumDataProvider
 
     /**
      * @return non-empty-list<array{
-     *   number: int,
-     *   expected: ?\BVP\Stadium\Enums\Stadium,
+     *     number: int,
+     *     expected: ?\BVP\Stadium\Enums\Stadium,
      * }>
      */
     public static function stadiumFromNumberProvider(): array
@@ -49,8 +49,8 @@ final class StadiumDataProvider
 
     /**
      * @return non-empty-list<array{
-     *   name: string,
-     *   expected: ?\BVP\Stadium\Enums\Stadium,
+     *     name: string,
+     *     expected: ?\BVP\Stadium\Enums\Stadium,
      * }>
      */
     public static function stadiumFromNameProvider(): array
